@@ -14,7 +14,7 @@ import vehiclemanager.model.Vehicle
 
 class VehicleRepository(
     private val mongoClient: MongoClient,
-    private val database: MongoDatabase = mongoClient.getDatabase("v"),
+    private val database: MongoDatabase = mongoClient.getDatabase("vehicleRecords"),
     private var collection: MongoCollection<Document> = database.getCollection("users"),
     private val objectMapper: ObjectMapper
 ) {
