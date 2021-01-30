@@ -60,18 +60,8 @@ class VehicleRepository(
         val query = BasicDBObject()
         query["_id"] = _id
         if (query.containsValue(_id)) {
-//            "RJ33"
             val doc = Document.parse(vehicle.toString())
-//            {
-//                "registrationNo":"RJ33"
-//            }
-
             doc[vehicle.getRegistrationNo() as String?] = _id
-
-//            {
-//                "registrationNo":"RJ33"
-//                "RJ33":_id
-//            }
             doc.remove("registrationNo")
             val dbObj = BasicDBObject()
             val update: Bson = Document("\$set", doc)
