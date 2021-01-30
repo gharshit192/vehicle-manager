@@ -1,0 +1,32 @@
+{
+    "type" : "record",
+    "namespace" : "vehiclemanager.model",
+    "name" : "Vehicle",
+    "fields":
+  [
+    {
+            "name" : "registrationNo",
+            "type" : "string"
+
+    },
+    {
+            "name" : "manufactureName",
+            "type" : ["null","string"],
+            "default": null
+    },
+    {
+            "name" : "modelNo",
+            "type" : "string"
+    },
+    {
+            "name" : "driverName",
+            "type" : ["null","string"],
+            "default": null
+    },
+    {
+            "name" : "driverMobile",
+            "type" : ["null","string"],
+            "default": null
+    }
+  ]
+}
