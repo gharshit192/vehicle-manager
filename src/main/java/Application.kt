@@ -12,7 +12,7 @@ import java.net.URI
 import javax.ws.rs.core.UriBuilder
 
 fun main() {
-    var baseUri: URI = UriBuilder.fromUri("http://localhost/").port(8080).build()
+    var baseUri: URI = UriBuilder.fromUri("http://localhost/").port(8089).build()
     val service = VehicleService(repository = VehicleRepository(
         mongoClient = MongoClient("localhost", 27017),
         objectMapper = ObjectMapper()),

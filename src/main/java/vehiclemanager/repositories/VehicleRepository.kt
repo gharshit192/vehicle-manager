@@ -26,7 +26,7 @@ class VehicleRepository(
             println("already in db with registration number ${vehicle.getRegistrationNo()}")
             return null
         }
-        collection.insertOne(doc)
+        collection.insertOne(doc    )
         return vehicle
     }
 
@@ -61,9 +61,9 @@ class VehicleRepository(
         query["_id"] = _id
         if (query.containsValue(_id)) {
             val doc = Document.parse(vehicle.toString())
-            doc[vehicle.getRegistrationNo() as String?] = _id
+          //  doc[vehicle.getRegistrationNo() as String?] = _id
             doc.remove("registrationNo")
-            val dbObj = BasicDBObject()
+        //    val dbObj = BasicDBObject()
             val update: Bson = Document("\$set", doc)
             collection.findOneAndUpdate(query, update)
         }

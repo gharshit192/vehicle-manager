@@ -18,6 +18,7 @@ class VehicleResources(private val vehicleService :VehicleService,private val ob
     @POST
     @Path("/vehicle")
     @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
     fun addVehicle(request: String): Response {
         try {
             val vehicle = vehicleService.addVehicle(objectMapper.readValue(request, Vehicle::class.java))
@@ -50,6 +51,7 @@ class VehicleResources(private val vehicleService :VehicleService,private val ob
     @PUT
     @Path("/vehicle/{_id}")
     @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
     fun updateVehicle(@PathParam("_id") _id: String,request: String):Response {
         val vehicle = vehicleService.updateVehicle(_id, objectMapper.readValue(request, Vehicle::class.java))
         return Response.ok(vehicle.toString()).build()
