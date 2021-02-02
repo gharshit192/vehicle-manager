@@ -33,7 +33,8 @@ class VehicleRepository(
     fun deleteVehicle(_id: String): Vehicle? {
         val query = BasicDBObject()
         query["_id"] = _id
-        val doc = database.getCollection("users").findOneAndDelete(Filters.eq("_id", _id))
+
+        val doc = collection.findOneAndDelete(Filters.eq("_id", _id))
         if (doc!=null){
             doc.remove("_id")
             val json = JSON.serialize(doc)
