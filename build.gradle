@@ -33,7 +33,20 @@ dependencies {
 //    compile group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.7.5'
 
 }
+//////////////////////////////////////////////////////////////////
+task fatJar(type: Jar) {
+    manifest {
+        attributes 'Implementation-Title': 'fretron-freight-pricing',
+                'Implementation-Version': archiveVersion ,
+                'Main-Class': 'com.fretron.freightpricing.ApplicationKt'
+    }
+    baseName = project.name + '-all'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+    exclude ('META-INF/*.RSA', 'META-INF/*.SF','META-INF/*.DSA')
 
+}
+//////////////////////////////////////////////////////////////////////////
 test {
     useJUnitPlatform()
 }
